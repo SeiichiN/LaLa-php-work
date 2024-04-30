@@ -49,3 +49,19 @@ function create(array $person) {
   } 
   return $result; 
 }
+// p562
+function findByName($name) {
+  $pdo = connect();
+  try {
+    $sql = "SELECT * FROM member WHERE name LIKE :name ";
+    $stm = $pdo->prepare($sql);
+    $stm->bindValue(':name', "%{$name}%", PDO::PARAM_STR);
+    $stm->execute();
+    $result = $stm->fetchAll(PDO::FETCH_ASSOC);
+  } catch (Exception $e) {
+    echo '<span class="error">エラーがありました。</span>';
+    echo $e->getMessage();
+    $result = [];
+  } 
+  return $result; 
+}
