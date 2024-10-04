@@ -7,5 +7,6 @@ try {
   echo $c;
 } catch(DivisionByZeroError $e) {
   echo 'ゼロでの割り算は無理';
+  echo $e->getMessage();
 }
 echo "どうですか？";
