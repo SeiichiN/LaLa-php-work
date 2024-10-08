@@ -1,1 +1,4 @@
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
+
+
+上のコマンドを PowerShellを管理者権限で起動して実行する。
