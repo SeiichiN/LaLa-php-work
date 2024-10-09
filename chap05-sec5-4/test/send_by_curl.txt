@@ -1,0 +1,2 @@
+curl --data-urlencode 'userid=　　太郎　' --data-urlencode 'password=まいど' http://localhost:3000/uketori.php
+
