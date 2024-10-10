@@ -1,0 +1,9 @@
+<?php
+$pattern = "/^[0-9]+$/";
+// $pattern = "/\A[0-9]+\z/";
+
+var_dump(preg_match($pattern, "123\n"));
+var_dump(preg_match($pattern, "1234\n"));
+
+
+;; 修正時刻: Thu 2024/10/10 18:04:03
