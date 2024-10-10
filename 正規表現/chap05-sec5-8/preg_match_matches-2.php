@@ -25,7 +25,7 @@ if ($result === false) {
 
 
 // $resArray = explode("\n", $result);
-$resArray = preg_split("/\n/", $subject);
+$resArray = preg_split("/PHP_EOL/", $subject);
 print_r($resArray);
 
 foreach ($resArray as $str) {
@@ -36,4 +36,4 @@ foreach ($resArray as $str) {
 
 
 
-// 修正時刻: Thu 2024/10/10 18:04:03
+// 修正時刻: Thu 2024/10/10 20:30:26
