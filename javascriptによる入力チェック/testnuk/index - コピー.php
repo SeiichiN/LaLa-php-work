@@ -7,7 +7,7 @@
 <body>
   <form action="uketori.php" method="post" id="form">
     <label>ユーザーID (半角英数字) :<br>
-      <input type="text" name="userid" id="userid">
+      <input type="text" name="userid">
       <span style="color:red" id="mes-id"></span>
     </label><br>
     <label>
