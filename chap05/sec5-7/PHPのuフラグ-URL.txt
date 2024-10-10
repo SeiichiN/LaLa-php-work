@@ -1,0 +1,2 @@
+PHPの正規表現のuフラグっていつ使うの？
+https://qiita.com/takaram/items/b6beb524f80fd8eb2eed
