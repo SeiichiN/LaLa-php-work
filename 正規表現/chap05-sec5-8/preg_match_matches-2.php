@@ -1,5 +1,5 @@
 <?php
-$pattern = "/^佐.+子$/mu";
+$pattern = "/^佐(.|\n)+香$/u";
 // $pattern = "/\A佐.+子\z/mu";
 $subject = <<< "names"
 佐藤有紀
@@ -36,4 +36,4 @@ foreach ($resArray as $str) {
 
 
 
-// 修正時刻: Thu 2024/10/10 20:30:26
+// 修正時刻: Fri 2024/10/11 06:56:04
