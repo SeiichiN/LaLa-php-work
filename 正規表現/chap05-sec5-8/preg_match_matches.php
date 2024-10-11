@@ -1,6 +1,6 @@
 <?php
-// $pattern = "/^佐.+子$/mu";
-$pattern = "/\A佐.+子\z/mu";
+$pattern = "/^佐.+子\r$/mu";
+// $pattern = "/\A佐.+子\z/mu";
 $subject = <<< "names"
 佐藤有紀
 阿佐田美和子
