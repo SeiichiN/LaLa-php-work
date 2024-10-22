@@ -1,4 +1,13 @@
 <?php
+require_once '../../lib/util.php';
+check_enc($_POST);
+if (isset($_POST['kosu'])) {
+  $kosu = $_POST['kosu'];
+} else {
+  $kosu = '';
+}
+?>
+<?php
 require_once '../../common/header.php';
 $discount = 0.8;
 $off = (1 - $discount) * 100;
@@ -13,7 +22,7 @@ $tanka_fmt = number_format($tanka);
   <input type="hidden" name="tanka" value="<?php echo $tanka ?>">
   <ul>
     <li><label>単価：<?php echo $tanka_fmt; ?>円</label></li>
-    <li><label>個数：<input type="number" name="kosu"></label></li>
+    <li><label>個数：<input type="number" name="kosu" value="<?php echo h($kosu) ?>"></label></li>
     <li><input type="submit" value="計算する"></li>
   </ul>
 </form>
