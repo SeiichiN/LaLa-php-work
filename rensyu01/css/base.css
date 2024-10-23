@@ -39,7 +39,7 @@ header {
 .header-inn {
   display: flex;
   justify-content: space-between;
-  items-align: center;
+  align-items: center;
 }
 
 footer {

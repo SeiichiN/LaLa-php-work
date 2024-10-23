@@ -23,5 +23,12 @@ if (count($errors) > 0) {
   echo "金額：", h($discount_price_fmt), "円<br>";
   echo "（割引：－", h($off_price_fmt), "円、", h($off_per), "% OFF）<br>";
 }
-move_to('discountForm.php', '戻る');
+?>
+<form action="discountForm.php" method="post">
+  <input type="hidden" name="kosu" value="<?php echo $kosu; ?>">
+  <ul>
+    <li><input type="submit" value="戻る"></li>
+  </ul>
+</form>
+<?php
 require_once '../../common/footer.php';
