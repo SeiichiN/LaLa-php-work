@@ -33,4 +33,18 @@ function findAll() {
   return $result;
 }
 
-
+function findByName(string $name) : array {
+  $result = [];
+  $pdo = db_connect();
+  try {
+    $sql = "SELECT * FROM member WHERE name LIKE :name";
+    $stm = $pdo->prepare($sql);
+    $stm->bindValue(':name', "%{$name}%", PDO::PARAM_STR);
+    $stm->execute();
+    $result = $stm->fetchAll(PDO::FETCH_ASSOC);
+  } catch (Exception $e) {
+    echo 'エラーがありました';
+    echo $e->getMessage();
+  }
+  return $result;
+}
