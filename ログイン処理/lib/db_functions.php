@@ -1,8 +1,8 @@
 <?php
 function db_connect() {
-  $user = "testuser";
-  $password = "testuser";
-  $dbName = "testdb";
+  $user = "logindbuser";
+  $password = "logindbuser";
+  $dbName = "login_db";
   $host = "localhost:3306";
   $dsn = "mysql:host={$host};dbname={$dbName};charset=utf8";
 
