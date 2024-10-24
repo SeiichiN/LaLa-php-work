@@ -15,28 +15,13 @@ if (empty($_POST)) {
 require_once '../../common/header.php';
 $name = $_POST['name'];
 $result = findByName($name);
+if (count($result) > 0) {
+  echo '<h3>名前に「', h($name), '」が含まれているレコード</h3>';
+  disp_table($result);
+} else {
+  echo '<span class="error">エラーがありました</span><br>';
+}
 ?>
-<?php if (count($result) > 0) : ?>
-  <h3>名前に「<?= h($name) ?>」が含まれているレコード</h3>
-  <table>
-    <tr>
-      <th>ID</th>
-      <th>名前</th>
-      <th>年齢</th>
-      <th>性別</th>
-    </tr>
-    <?php foreach ($result as $row) : ?>
-      <tr>
-        <td><?= h($row['id']) ?></td>
-        <td><?= h($row['name']) ?></td>
-        <td><?= h($row['age']) ?></td>
-        <td><?= h($row['sex']) ?></td>
-      </tr>
-    <?php endforeach; ?>
-  </table>
-<?php else : ?>
-  <span class="error">エラーがありました</span><br>
-<?php endif; ?>
 <hr>
 <p><a href="<?= $gobackURL ?>">もどる</a></p>
 <?php 
