@@ -1,0 +1,12 @@
+phpファイルの配置場所
+
+(1) Apacheと連携するためには C:\xampp\htdocs\ 以下に
+  phpファイルを配置しなくてはならない。
+    (Apacheのドキュメントルートは C:\xampp\htdocs だから)
+    --> http://localhost/test.php とアクセスできる。
+  
+(2) PHP Serverを使うと、任意のフォルダでVSCodeを開くので、
+  そのフォルダをドキュメントルートにできる。
+    (PHP serverと php が連携)
+    --> http://localhost:3000/test.php
+    
