@@ -1,0 +1,31 @@
+前提となる状況
+
+職場のPCでブランチ(test)を作成し、そこに編集を加えた後、
+リモート(GitHub)にプッシュした。
+
+自宅のPCで作業を続ける。
+
+まず、リモートに新しく作成したブランチを
+ローカル(眼の前のPC)に、以下の手順で取り込む。
+
+ローカルではmainブランチにいるとする。
+
+(1) リモートのブランチを確認
+
+   git branch -r
+   
+     origin/HEAD
+     origin/main
+     origin/test
+     
+(2) ローカルにtestブランチを取り込む。
+
+   git branch test origin/test
+   
+   これで、ブランチが作成される。
+   
+(3) testブランチに移って作業する。
+
+   git switch test
+   
+
