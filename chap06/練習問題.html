@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<title>練習問題.html</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+
+</head>
+
+<body>
+
+<p><strong>初心者向けPHP「配列」に関する練習問題</strong></p>
+<hr />
+<h2 id="基礎レベル配列の作り方と基本操作">🟢
+基礎レベル（配列の作り方と基本操作）</h2>
+<h3 id="問題1">問題1</h3>
+<p>次の果物を配列 <code>$fruits</code> に格納してください。</p>
+<pre class="text"><code>りんご, みかん, バナナ</code></pre>
+<p><strong>出力結果例</strong>：</p>
+<pre><code>りんご
+みかん
+バナナ</code></pre>
+<p>ヒント：<code>foreach</code>文を使うとよいです。</p>
+<hr />
+<h3 id="問題2">問題2</h3>
+<p>次の配列から「ねこ」を表示してください。</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode php"><code class="sourceCode php"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="va">$animals</span> <span class="op">=</span> [<span class="st">&quot;いぬ&quot;</span><span class="ot">,</span> <span class="st">&quot;ねこ&quot;</span><span class="ot">,</span> <span class="st">&quot;うさぎ&quot;</span>]<span class="ot">;</span></span></code></pre></div>
+<hr />
+<h3 id="問題3">問題3</h3>
+<p>配列 <code>$numbers = [10, 20, 30];</code>
+の中のすべての数値を足し算して合計を表示してください。</p>
+<p><strong>出力結果例：</strong></p>
+<pre><code>合計は 60 です</code></pre>
+<hr />
+<h2 id="応用基礎レベル連想配列関数など">🟡
+応用基礎レベル（連想配列・関数など）</h2>
+<h3 id="問題4">問題4</h3>
+<p>次のような<strong>連想配列</strong>を作り、年齢を表示してください。</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode php"><code class="sourceCode php"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="va">$user</span> <span class="op">=</span> [</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;name&quot;</span> =&gt; <span class="st">&quot;田中&quot;</span><span class="ot">,</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;age&quot;</span> =&gt; <span class="dv">25</span><span class="ot">,</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;job&quot;</span> =&gt; <span class="st">&quot;エンジニア&quot;</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>]<span class="ot">;</span></span></code></pre></div>
+<p><strong>出力結果例：</strong></p>
+<pre><code>田中さんの年齢は25歳です</code></pre>
+<hr />
+<h3 id="問題5">問題5</h3>
+<p>次の配列の中に <code>"PHP"</code> が含まれているかどうかを判定し、
+「見つかりました」または「見つかりませんでした」と表示してください。</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode php"><code class="sourceCode php"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="va">$langs</span> <span class="op">=</span> [<span class="st">&quot;HTML&quot;</span><span class="ot">,</span> <span class="st">&quot;CSS&quot;</span><span class="ot">,</span> <span class="st">&quot;JavaScript&quot;</span><span class="ot">,</span> <span class="st">&quot;PHP&quot;</span>]<span class="ot">;</span></span></code></pre></div>
+<p>ヒント：<code>in_array()</code> 関数を使います。</p>
+<hr />
+<h3 id="問題6">問題6</h3>
+<p>次の配列を<strong>昇順（小さい順）</strong>に並べ替えて表示してください。</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode php"><code class="sourceCode php"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="va">$nums</span> <span class="op">=</span> [<span class="dv">40</span><span class="ot">,</span> <span class="dv">10</span><span class="ot">,</span> <span class="dv">30</span><span class="ot">,</span> <span class="dv">20</span>]<span class="ot">;</span></span></code></pre></div>
+<p>ヒント：<code>sort()</code> 関数を使うと並べ替えができます。</p>
+<hr />
+<h2 id="少し実践的な問題組み合わせ集計">🔵
+少し実践的な問題（組み合わせ・集計）</h2>
+<h3 id="問題7">問題7</h3>
+<p>次の配列から、値が 80 以上の人の名前だけを表示してください。</p>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode php"><code class="sourceCode php"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="va">$scores</span> <span class="op">=</span> [</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;佐藤&quot;</span> =&gt; <span class="dv">90</span><span class="ot">,</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;鈴木&quot;</span> =&gt; <span class="dv">75</span><span class="ot">,</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;高橋&quot;</span> =&gt; <span class="dv">82</span><span class="ot">,</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;田中&quot;</span> =&gt; <span class="dv">68</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>]<span class="ot">;</span></span></code></pre></div>
+<p><strong>出力結果例：</strong></p>
+<pre><code>佐藤
+高橋</code></pre>
+<p>ヒント：<code>foreach</code>文と条件分岐を使います。</p>
+<hr />
+<h3 id="問題8">問題8</h3>
+<p>次の配列を結合して、1つの配列にしてください。</p>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode php"><code class="sourceCode php"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="va">$a</span> <span class="op">=</span> [<span class="st">&quot;red&quot;</span><span class="ot">,</span> <span class="st">&quot;green&quot;</span>]<span class="ot">;</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="va">$b</span> <span class="op">=</span> [<span class="st">&quot;blue&quot;</span><span class="ot">,</span> <span class="st">&quot;yellow&quot;</span>]<span class="ot">;</span></span></code></pre></div>
+<p><strong>出力結果例：</strong></p>
+<pre><code>Array ( [0] =&gt; red [1] =&gt; green [2] =&gt; blue [3] =&gt; yellow )</code></pre>
+<p>ヒント：<code>array_merge()</code> を使います。</p>
+<hr />
+<h3 id="問題9チャレンジ">問題9（チャレンジ）</h3>
+<p>次のような生徒の点数配列があります。平均点を求めて、小数第1位まで表示してください。</p>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode php"><code class="sourceCode php"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="va">$scores</span> <span class="op">=</span> [<span class="dv">80</span><span class="ot">,</span> <span class="dv">90</span><span class="ot">,</span> <span class="dv">75</span><span class="ot">,</span> <span class="dv">60</span><span class="ot">,</span> <span class="dv">95</span>]<span class="ot">;</span></span></code></pre></div>
+<p><strong>出力結果例：</strong></p>
+<pre><code>平均点は80.0点です</code></pre>
+<p>ヒント：<code>array_sum()</code> と <code>count()</code>
+を組み合わせます。</p>
+<!-- 修正時刻: Thu 2025/10/16 07:07:18 -->
+
+</body>
+</html>
