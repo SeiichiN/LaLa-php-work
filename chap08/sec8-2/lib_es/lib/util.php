@@ -5,7 +5,7 @@ function h($data) {
 function cken($data) {
   return mb_check_encoding($data, 'UTF-8');
 }
-/*
+
 function es($data, $charset='UTF-8') {
   if (is_array($data)) {
     return array_map(__METHOD__, $data);
@@ -13,7 +13,25 @@ function es($data, $charset='UTF-8') {
     return htmlspecialchars($data, ENT_QUOTES, $charset);
   }
 }
-*/
+
+$myData = [
+  'name' => '<script>alert(document.cookie)</script>',
+  'age' => 25,
+  'hobby' => ['<h2>釣り</h2>', '散歩', 'ドライブ'],
+];
+
+$myData = es($myData);
+
+foreach ($myData as $k1 => $v1) {
+  if (is_array($v1)) {
+    foreach ($v1 as $k2 => $v2) {
+      echo es($v2), PHP_EOL;
+    }
+  } else {
+    echo es($v1), PHP_EOL;
+  }
+}
+
 /*
 function cken(array $data) {
   $result = true;
@@ -43,3 +61,5 @@ if (cken($myData)) {
   echo "違う";
 }
 */
+
+// 修正時刻: Fri 2025/10/17 20:42:10
