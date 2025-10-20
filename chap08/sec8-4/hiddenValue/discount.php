@@ -59,11 +59,17 @@ if (count($errors) > 0) {
   $tanka_fmt = number_format($tanka);
   $discount_price_fmt = number_format($discount_price);
   $off_price_fmt = number_format($off_price);
-  echo h("単価：{$tanka_fmt}円<br>"), h("個数：{$kosu}個"), "<br>";
+  echo h("単価：{$tanka_fmt}円、");; 
+  echo h("個数：{$kosu}個"), "<br>";
   echo h("金額：{$discount_price_fmt}円"), "<br>";
   echo h("（割引：{$off_price_fmt}円、{$off_per}％ OFF"), "<br>";
 }
 ?>
+<hr>
+<form action="discountForm.php" method="post">
+  <input type="hidden" name="kosu" value="<?php echo h($kosu); ?>">
+  <input type="submit" value="戻る">
+</form>
 </div>
 </body>
 </html>
