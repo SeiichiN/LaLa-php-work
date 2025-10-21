@@ -6,24 +6,29 @@ if (!cken($_POST)) {
 ?>
 <?php
 $errors = [];
-if (isset($_POST['discount'])) {
-  $discount = $_POST['discount'];
-  if (!is_numeric($discount)) {
-    $errors[] = '割引率の数値エラー';
-  }
+if (isset($_POST['couponCode'])) {
+  $couponCode = $_POST['couponCode'];
 } else {
-  $errors[] = "フォームから入力してください";
+  $couponCode = '';
 }
 
-if (isset($_POST['tanka'])) {
-  $tanka = $_POST['tanka'];
-  if (!ctype_digit($tanka)) {
-    $errors[] = '単価の数値エラー';
-  }
+if (isset($_POST['goodsID'])) {
+  $goodsID = $_POST['goodsID'];
 } else {
-  $errors[] = "フォームから入力してください";
+  $goodsID = '';
 }
 ?>
+
+<?php
+require_once('saledata.php');
+$discount = getCouponRate($couponCode);
+$tanka = getPrice($goodsID);
+if (is_null($discount) || is_null($tanka)) {
+  $err = '<div class="error">不正な操作がありましした</div>';
+  exit($err);
+}
+?>
+
 <?php
 if (isset($_POST['kosu'])) {
   $kosu = $_POST['kosu'];
@@ -53,7 +58,7 @@ if (count($errors) > 0) {
   echo h("単価：{$tanka_fmt}円、");
   echo h("個数：{$kosu}個"), "<br>";
   echo h("金額：{$discount_price_fmt}円"), "<br>";
-  echo h("（割引：-{$off_price_fmt}）円、{$off_per}％OFF!"), "<br>";
+  echo h("（割引：-{$off_price_fmt}円）、{$off_per}％OFF!"), "<br>";
 }
 ?>
 <form action="discountForm.php" method="post">
