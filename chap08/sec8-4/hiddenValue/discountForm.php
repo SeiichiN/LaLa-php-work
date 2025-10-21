@@ -10,23 +10,40 @@
 <body>
   <div>
     <?php
-    $discount = 0.8;
-    $off = (1 - $discount) * 100;
-    if ($discount > 0) {
-      echo "<h2>このページでのご購入は{$off}％ OFFになります</h2>";
+    require_once('../lib/util.php');
+    if (!cken($_POST)) {
+      exit("Encoding Error! Not UTF-8");
     }
-    $tanka = 2900;
-    $tanka_fmt = number_format($tanka);
     ?>
-    <form action="discount.php" method="post">
-      <input type="hidden" name="discount" value="<?php echo $discount; ?>">
-      <input type="hidden" name="tanka" value="<?php echo $tanka; ?>">
-      <ul>
-        <li>単価：<?php echo $tanka_fmt; ?>円</li>
-        <li><label>個数：<input type="number" name="kosu"></label></li>
-        <li><input type="submit" value="計算する"></li>
-      </ul>
-    </form>
+    <?php
+    // if (isset($_POST['kosu'])) {
+    //   $kosu = $_POST['kosu'];
+    // } else {
+    //   $kosu = '';
+    // }
+    $kosu = $_POST['kosu'] ?? '';
+    ?>
+  <?php
+  $discount = 0.8;
+  $off = (1 - $discount) * 100;
+  if ($discount > 0) {
+    echo "<h2>このページでのご購入は{$off}％ OFFになります</h2>";
+  }
+  $tanka = 2900;
+  $tanka_fmt = number_format($tanka);
+  ?>
+  <form action="discount.php" method="post">
+    <input type="hidden" name="discount" value="<?php echo $discount; ?>">
+    <input type="hidden" name="tanka" value="<?php echo $tanka; ?>">
+    <ul>
+      <li>単価：<?php echo $tanka_fmt; ?>円</li>
+      <li><label>
+        個数：<input type="text" name="kosu" 
+                    value="<?php echo h($kosu) ?>">
+      </label></li>
+      <li><input type="submit" value="計算する"></li>
+    </ul>
+  </form>
   </div>
 </body>
 

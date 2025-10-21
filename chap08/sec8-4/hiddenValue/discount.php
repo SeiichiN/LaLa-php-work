@@ -37,20 +37,20 @@ if (isset($_POST['tanka'])) {
 <?php
 if (isset($_POST['kosu'])) {
   $kosu = $_POST['kosu'];
-  if (!ctype_digit($kosu) || $kosu <= 0) {
-    $errors[] = '個数は1以上の整数で入力してください';
+  if (!ctype_digit($kosu)) {
+    $errors[] = "個数は正の整数で入力してください";
   }
 } else {
-  $errors[] = "フォームから入力してください";
+  $errors[] = 'フォームからアクセスしてください';
 }
 ?>
 <?php
 if (count($errors) > 0) {
   echo '<ol class="error">';
   foreach ($errors as $value) {
-    echo "<li>{$value}</li>";
+    echo '<li>', $value, '</li>';
   }
-  echo "</ol>";
+  echo '</ol>';
 } else {
   $price = $tanka * $kosu;
   $discount_price = floor($price * $discount);
@@ -59,17 +59,14 @@ if (count($errors) > 0) {
   $tanka_fmt = number_format($tanka);
   $discount_price_fmt = number_format($discount_price);
   $off_price_fmt = number_format($off_price);
-  echo h("単価：{$tanka_fmt}円、");; 
+
+  echo h("単価：{$tanka_fmt}円、");
   echo h("個数：{$kosu}個"), "<br>";
   echo h("金額：{$discount_price_fmt}円"), "<br>";
-  echo h("（割引：{$off_price_fmt}円、{$off_per}％ OFF"), "<br>";
+  echo h("（割引：-{$off_price_fmt}）円、{$off_per}％OFF!"), "<br>";
 }
 ?>
-<hr>
 <form action="discountForm.php" method="post">
-  <input type="hidden" name="kosu" value="<?php echo h($kosu); ?>">
+  <input type="hidden" name="kosu" value="<?php echo h($kosu) ?>">
   <input type="submit" value="戻る">
 </form>
-</div>
-</body>
-</html>
