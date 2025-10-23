@@ -1,0 +1,7 @@
+
+show variables like '%general%';
+
+set GLOBAL general_log_file = 'c:/xampp/mysql/log/mysql.log';
+
+set GLOBAL general_log = 1;
+
