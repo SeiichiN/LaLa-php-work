@@ -31,7 +31,7 @@ try {
 
 <body>
   <div>
-    <form action="" method="post">
+    <form action="insert_goods.php" method="post">
       <ul>
         <li>
           <label>商品ID：
