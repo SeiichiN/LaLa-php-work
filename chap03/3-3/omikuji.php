@@ -1,3 +1,5 @@
+<html>
+  <body>
 <?php
 // おみくじをつくる(練習問題)
 $num = mt_rand(1, 5);
@@ -9,4 +11,6 @@ $result = match($num) {
   default => "凶",
 };
 echo $result;
+?>
+</html>
 
