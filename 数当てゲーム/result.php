@@ -8,7 +8,7 @@
 <body>
   <h1>数当てゲーム</h1>
   <?php
-  $user = $_POST['user'];
+  $user = (int) $_POST['user'];
   $com = mt_rand(1, 9);
   if ($user === $com) {
     echo "あたりです";
@@ -18,6 +18,6 @@
     echo "小さすぎます";
   }
   ?>
-  <a href="index.php">もどる</a>
+  <p><a href="index.php">もどる</a></p>
 </body>
 </html>
