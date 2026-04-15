@@ -1,0 +1,17 @@
+正規表現を使ったアプリ
+
+zipinput.php
+   郵便番号を入力する。
+      type="text" name="zip"
+
+zipcheck.php
+   郵便番号をチェックする。
+     $zipcode = $_POST['zip'];
+     
+     if (preg_match($pattern, $zipcode)) {
+       // マッチした場合
+     } else {
+       // マッチしなかった場合
+     }
+     
+     
