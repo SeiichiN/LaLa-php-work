@@ -8,6 +8,7 @@
 <body>
   <h1>数当てゲーム</h1>
   <form action="result.php" method="post">
+    <p>1～9の数字を入力してください</p>
     <input type="text" name="user"><br>
     <input type="submit" value="送信">
   </form>
