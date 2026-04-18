@@ -43,7 +43,7 @@
       "port": 9003,
       "serverReadyAction": {
         "pattern": "Development Server \\(http://localhost:([0-9]+)\\) started",
-        "uriFormat": "http://localhost:%s/${relativeFile}",
+        "uriFormat": "http://localhost:%s/${command:extension.commandvariable.file.relativeFilePosix}",
         "action": "openExternally"
       }
     }
