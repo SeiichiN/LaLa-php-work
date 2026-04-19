@@ -9,4 +9,8 @@ function es(array|string $data): mixed {
 
 $_POST['hobby'] = ["cook'n", "<swimming>", "&music"];
 $_POST = es($_POST);
-print_r($_POST);
+$hobby = $_POST['hobby'];
+foreach ($hobby as $key => $value) {
+  echo $value, "<br>", PHP_EOL;
+} 
+

@@ -9,4 +9,5 @@ function es(array|string $data): mixed {
 
 $_POST['name'] = '<h1>太郎</h1>';
 $_POST = es($_POST);
-print_r($_POST);
+$name = $_POST['name'];
+echo $name, "<br>", PHP_EOL;
