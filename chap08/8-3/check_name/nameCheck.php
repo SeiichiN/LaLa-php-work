@@ -10,9 +10,9 @@
     <?php
     require_once('../../lib/util.php');
     if (cken($_POST) === false) {
-      $err = "Encofing Error! The expected encoding is UTF-8";
+      $err = "Encoding Error! The expected encoding is UTF-8";
       exit($err);  // 処理中止
-      // 最初のファイルにリダイレクト
+      // or 最初のファイルにリダイレクト
     }
     $_POST = es($_POST);
     ?>
