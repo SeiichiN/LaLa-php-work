@@ -10,9 +10,9 @@
     <?php
     require_once('../../lib/util.php');
     if (cken($_POST) === false) {
-      $err = "Encofing Error! The expected encoding is UTF-8";
+      $err = "Encoding Error! The expected encoding is UTF-8";
       exit($err);  // 処理中止
-      // 最初のファイルにリダイレクト
+      // or 最初のファイルにリダイレクト
     }
     $_POST = es($_POST);
     ?>
@@ -21,13 +21,15 @@
     if (isset($_POST['name'])) {
       $name = trim($_POST['name']);
       if ($name === '') {
+        echo '何も入力せずに送信した場合';
         $isError = true;
       }
     } else {
+      echo 'nameCheckForm.phpから動作しなかった場合';
       $isError = true;
     }
     ?>
-    <?php if ($isError): ?>
+    <?php if ($isError === true): ?>
       <span class="error">名前を入力してください</span>
       <form method="post" action="nameCheckForm.php">
         <input type="submit" value="戻る">
@@ -37,6 +39,7 @@
         こんにちは、<?php echo $name; ?>さん。
       </span>
     <?php endif; ?>
+    <p><a href="nameCheckForm.php">もどる</a></p>
   </div>
 </body>
 </html>
