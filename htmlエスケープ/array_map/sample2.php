@@ -3,7 +3,7 @@ function add_dayone($data) {
   return $data . "だよね";
 }
 
-$person = [
+$person = [              # 連想配列
   'name' => '太郎',
   'age' => 23
 ];
