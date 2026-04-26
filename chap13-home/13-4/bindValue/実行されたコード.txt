@@ -1,0 +1,42 @@
+(1) 次のSQL文はセキュリティ上、危険。
+
+$min = "20 or 1 = 1 -- ";
+$max = 40;
+$sex = '女';
+
+$sql = "SELECT * FROM member
+        WHERE age >= {$min} AND age <= {$max} AND sex = '{$sex}'";
+
+66 Prepare  SELECT * FROM member
+            WHERE age >= 20 or 1 = 1 --  AND age <= 40 AND sex = '女'
+66 Execute  SELECT * FROM member
+            WHERE age >= 20 or 1 = 1 --  AND age <= 40 AND sex = '女'
+
+
+(2) プレースホルダーを使った場合
+
+$min = "20 or 1 = 1 -- ";
+$max = 40;
+$sex = '女';
+
+$sql = "SELECT * FROM member
+        WHERE age >= :min AND age <= :max AND sex = :sex";
+$stm = $pdo->prepare($sql);
+$stm->bindValue(':min', $min, PDO::PARAM_INT);
+$stm->bindValue(':max', $max, PDO::PARAM_INT);
+$stm->bindValue(':sex', $sex, PDO::PARAM_STR);
+$stm->execute();
+
+68 Prepare  SELECT * FROM member
+            WHERE age >= ? AND age <= ? AND sex = ?
+68 Execute  SELECT * FROM member
+            WHERE age >= '20 or 1 = 1 -- ' AND age <= 40 AND sex = '女'
+
+
+
+
+
+67 Prepare  SELECT * FROM member
+            WHERE age >= ? AND age <= ? AND sex = ?
+67 Execute  SELECT * FROM member
+            WHERE age >= 20 AND age <= 40 AND sex = '女'
