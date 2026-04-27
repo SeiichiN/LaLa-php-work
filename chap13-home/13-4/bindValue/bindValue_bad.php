@@ -1,8 +1,8 @@
 <?php
 // やってはいけないパターン
 require_once('../../lib/util.php');
-$user = "testuser";
-$password = "testuser";
+$user = "root";
+$password = "";
 $dbName = "testdb";
 $host = "localhost:3306";
 $dsn = "mysql:host={$host};dbname={$dbName};charset=utf8";
@@ -29,8 +29,11 @@ $sex = '女';
     <?php
     try {
       $pdo = new PDO($dsn, $user, $password);
+      $pdo->exec("SET GLOBAL general_log_file = 'c:/xampp/mysql/log/mysql.log'");
+      $pdo->exec("SET GLOBAL general_log = 1");
       $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
       $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
       echo "データベース{$dbName}に接続しました";
 
       $sql = "SELECT * FROM member
