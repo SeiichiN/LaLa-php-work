@@ -7,7 +7,8 @@ $host = "localhost:3306";
 $dsn = "mysql:host={$host};dbname={$dbName};charset=utf8";
 // ブラウザから送られてきた値
 // $min = 20;
-$min = "20 or 1 = 1 -- ";
+// $min = "20 or 1 = 1 -- ";
+$min = "a";
 $max = 40;
 $sex = '男';
 // $sex = "' or 1 = 1 -- '";
