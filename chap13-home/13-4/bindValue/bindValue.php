@@ -9,7 +9,7 @@ $dsn = "mysql:host={$host};dbname={$dbName};charset=utf8";
 // $min = 20;
 $min = "20 or 1 = 1 -- ";
 $max = 40;
-$sex = '女';
+$sex = '男';
 // $sex = "' or 1 = 1 -- '";
 ?>
 <!DOCTYPE html>
