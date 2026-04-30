@@ -19,7 +19,7 @@ try {
   //
   // for windows
   $pdo->exec("SET GLOBAL general_log_file = 'c:/xampp/mysql/log/mysql.log'");
-  $pdo->exec("SET GLOBAL general_log = 1");
+  $pdo->exec("SET GLOBAL general_log = 0");
 } catch (Exception $e) {
   echo '<span class="error">エラーがありました</span><br>';
   echo $e->getMessage();

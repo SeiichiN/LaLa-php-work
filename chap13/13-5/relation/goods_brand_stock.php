@@ -24,16 +24,19 @@ $dsn = "mysql:host={$host};dbname={$dbName};charset=utf8";
       $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
       $sql = <<< EOD
-        SELECT
-          g.id AS goods_id,
-          g.name AS goods_name,
-          g.size AS size,
-          b.name AS brand_name
-        FROM goods g
-          INNER JOIN brand b
-          ON g.brand = b.id
-        ORDER BY g.id;
-        EOD;
+SELECT
+  g.id AS goods_id,
+  g.name AS goods_name,
+  g.size AS size,
+  b.name AS brand_name,
+  s.quantity AS quantity
+FROM goods g
+  INNER JOIN brand b
+  ON g.brand = b.id
+    INNER JOIN stock s
+    ON g.id = s.goods_id
+ORDER BY g.id;
+EOD;
       $prepare = $pdo->prepare($sql);
       $prepare->execute();
       $result = $prepare->fetchAll(PDO::FETCH_ASSOC);
@@ -44,6 +47,7 @@ $dsn = "mysql:host={$host};dbname={$dbName};charset=utf8";
       echo "<th>商品</th>";
       echo "<th>サイズ</th>";
       echo "<th>ブランド</th>";
+      echo "<th>在庫</th>";
       echo "</tr></thead>";
       echo "<tbody>"; 
       foreach($result as $row) {
@@ -52,6 +56,7 @@ $dsn = "mysql:host={$host};dbname={$dbName};charset=utf8";
         echo "<td>", es($row['goods_name']), "</td>";
         echo "<td>", es($row['size']), "</td>";
         echo "<td>", es($row['brand_name']), "</td>";
+        echo "<td>", es($row['quantity']), "</td>";
         echo "</tr>";
       }
       echo "</tbody>";
