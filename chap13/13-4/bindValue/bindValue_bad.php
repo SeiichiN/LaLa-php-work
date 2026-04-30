@@ -17,7 +17,7 @@ $dsn = "mysql:host={$host};dbname={$dbName};charset=utf8";
 <body>
   <div>
     <?php
-    $min = '1 OR 1 = 1 --';
+    $min = '1 OR 1 = 1 -- ';
     $max = 40;
     $sex = '男';
     try {
